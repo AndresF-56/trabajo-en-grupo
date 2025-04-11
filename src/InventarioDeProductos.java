@@ -25,7 +25,7 @@ public class InventarioDeProductos {
         int cantidadMinima = scanner.nextInt();
 
         //se evalua que se cumpla la condición de que sea como mínimo 5 productos.
-        if(cantidadMinima < 0){
+        if(cantidadMinima < 5){
             System.out.println("Error. el mínimo de productos que puede ingresar es 5 ");
             scanner.close();
             return;
