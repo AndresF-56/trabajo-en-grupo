@@ -32,13 +32,13 @@ public class InventarioDeProductos {
         }
 
         //llenar los arrays con los 5 productos.
+        scanner.nextLine();
         for(int i = 0 ; i < cantidadMinima ; i++){
 
             // se hace la lectura del nombre de cada producto y se almacena en el array de nombres.
 
             System.out.println("ingrese el nombre del "+(i+1)+"° producto :");
             String strNombre = scanner.nextLine();
-            scanner.nextLine();
             strNombres.add(strNombre);
 
             // se hace la lectura de la cantidad de cada producto.
@@ -52,9 +52,9 @@ public class InventarioDeProductos {
             System.out.println("ingrese el precio unitario del "+(1+i)+"° producto : ");
             double numPrecio = scanner.nextDouble();
             numPrecios.add(numPrecio);
+            scanner.nextLine();
 
         }
-        scanner.nextLine();//limpia el buffer.
 
         //PERMITIR AGREGAR MAS PRODUCTOS
 
@@ -119,6 +119,7 @@ public class InventarioDeProductos {
                 //se le pregunta al usario la cantidad nueva del producto.
                 System.out.println("¿Cuál es el valor por el que desea actualizar la cantidad de dicho producto? ");
                 int nuevaCantidad = scanner.nextInt();
+                scanner.nextLine();
 
                 
                 //se recorre el array de los nommbres de los productos.
@@ -129,7 +130,7 @@ public class InventarioDeProductos {
                         //se evalua que el producto exista
                         if(indice != -1){
                             numCantidades.set(indice, nuevaCantidad);
-                            scanner.nextLine();
+                            
                         }else{
                             System.out.println("producto no encontrado");
                         }
@@ -141,10 +142,11 @@ public class InventarioDeProductos {
             //preguntar al usuario.
             System.out.println("¿desea actualizar la cantidad de otro producto?");
             strRespuesta3 = scanner.nextLine().trim().toLowerCase();
-            scanner.nextLine();
+            
 
             }while(strRespuesta3.equals("si"));
         }
+
         
         //CALCULAR LOS VALORES TOTALES DE LOS PRODUCTOS 
 
@@ -166,7 +168,7 @@ public class InventarioDeProductos {
 
         //mostramos el reporte final del inventario
         System.out.println("Reporte final :");
-        for(int i = 0 ; i < strNombres.size() ; i++){
+        for(int i = 0 ; i < valoresTotales.length ; i++){
             System.out.println("producto : "+strNombres.get(i)+" - Cantidad : "+numCantidades.get(i)+" - Precio por unidad : "+numPrecios.get(i)+" - Valor Total : "+valoresTotales[i]);
         }
 
